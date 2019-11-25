@@ -41,16 +41,13 @@ else:
     if "ips" in demisto.args():
         iplist = demisto.args()['ips'].split(",")
 
-    elif demisto.command() == 'greynoise-quickcheck':
+    elif demisto.command() == 'greynoise-quick':
         uri = '/v2/noise/quick/' + ip
         method = 'get'
-    elif demisto.command() == 'greynoise-context':
+    elif demisto.command() == 'greynoise-ip':
         uri = '/v2/noise/context/' + ip
         method = 'get'
-    elif demisto.command() == 'greynoise-actors':
-        uri = '/v2/research/actors/'
-        method = 'get'
-    elif demisto.command() == 'greynoise-multicheck':
+    elif demisto.command() == 'greynoise-multi-quick':
         uri = '/v2/noise/multi/quick'
         method = 'get'
         tmpdata = dict()
