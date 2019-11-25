@@ -1,0 +1,46 @@
+commonfields:
+  id: GreyNoise
+  version: -1
+name: GreyNoise
+display: GreyNoise
+category: Data Enrichment & Threat Intelligence
+image: #todo
+description: GreyNoise API Integration
+configuration:
+- display: API Server URL
+  name: url
+  defaultvalue: https://api.greynoise.io
+  type: 0
+  required: true
+- display: GreyNoise API Key
+  name: apikey
+  defaultvalue: ""
+  type: 0
+  required: true
+script:
+  script: |-
+
+    print("todo")
+
+  type: python
+  commands:
+  - name: greynoise-quick
+    arguments:
+    - name: ip
+      required: true
+    description: Check whether a given IP address is "Internet background noise",
+      or has been observed scanning or attacking devices across the Internet.
+  - name: greynoise-ip
+    arguments:
+    - name: ip
+    description: Get more information about a given IP address. Returns time ranges,
+      IP metadata (network owner, ASN, reverse DNS pointer, country), associated actors,
+      activity tags, and raw port scan and web request information.
+  - name: greynoise-multi-quick
+    arguments:
+    - name: ips
+      description: Comma separated list of IPs to send for a quick check
+      isArray: true
+    description: Check whether a list of given IP addresses are "Internet background
+      noise"
+  runonce: false
